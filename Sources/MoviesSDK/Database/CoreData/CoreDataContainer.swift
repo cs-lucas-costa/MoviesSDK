@@ -18,7 +18,9 @@ final class CoreDataContainer: CoreDataProtocol {
         
         let url = Bundle.module.url(forResource: containerIdentifier, withExtension: ".momd")!
         let model = NSManagedObjectModel(contentsOf: url)!
+        
         let container = NSPersistentContainer(name: containerIdentifier, managedObjectModel: model)
+        container.viewContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
         
         guard container.persistentStoreDescriptions.first != nil else {
             fatalError("Couldn't retrieve persistent store description")
@@ -33,7 +35,7 @@ final class CoreDataContainer: CoreDataProtocol {
     }()
     
     var context: NSManagedObjectContext {
-        container.viewContext
+        return container.viewContext
     }
     
 }
