@@ -30,6 +30,18 @@ public struct Movie: Decodable {
         title = try container.decode(String.self, forKey: .title)
     }
     
+    public init(id: Int,
+                title: String,
+                posterPath: String,
+                releaseDate: String,
+                overview: String) {
+        self.id = id
+        self.title = title
+        self.posterPath = posterPath
+        self.releaseDate = releaseDate
+        self.overview = overview
+    }
+    
 }
 
 extension Movie {
