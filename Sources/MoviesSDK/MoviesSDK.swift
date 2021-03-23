@@ -14,23 +14,22 @@ public protocol MoviesSDK {
     func getGenresList(completionHandler: @escaping (Result<GenreResponse, Error>) -> Void)
 }
 
-final class MoviesSDKManager: MoviesSDK {
+public final class MoviesSDKManager: MoviesSDK {
     
     private let genreRepository: GenreRepository
     private let movieRepository: MovieRepository
     
-    init(genreRepository: GenreRepository,
-         movieRepository: MovieRepository) {
+    init(genreRepository: GenreRepository = GenreRepository(),
+         movieRepository: MovieRepository = MovieRepository()) {
         self.genreRepository = genreRepository
         self.movieRepository = movieRepository
     }
     
-    
-    func getPopularMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
+    public func getPopularMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {
         movieRepository.getPopularMovies(completionHandler: completionHandler)
     }
     
-    func getGenresList(completionHandler: @escaping (Result<GenreResponse, Error>) -> Void) {
+    public func getGenresList(completionHandler: @escaping (Result<GenreResponse, Error>) -> Void) {
         genreRepository.getGenresList(completionHandler: completionHandler)
     }
 }

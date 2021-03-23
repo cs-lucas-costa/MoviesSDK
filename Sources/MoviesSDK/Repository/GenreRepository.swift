@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GenreRepository {
+public class GenreRepository {
     
     private let networkManager: NetworkManagerProtocol
     
