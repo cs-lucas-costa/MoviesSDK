@@ -22,25 +22,25 @@ protocol NetworkManagerProtocol {
 }
 
 extension NetworkManagerProtocol {
-    func decode<Element:Decodable>(data: Data, with type: Element.Type) throws -> Element {
+    public func decode<Element:Decodable>(data: Data, with type: Element.Type) throws -> Element {
         let decoder = JSONDecoder()
         return try decoder.decode(type, from: data)
     }
 }
 
 
-final class NetworkManager: NetworkManagerProtocol {
+public final class NetworkManager: NetworkManagerProtocol {
     
     private let session: URLSession
     
-    init(session: URLSession = URLSession.shared) {
+    public init(session: URLSession = URLSession.shared) {
         self.session = session
     }
     
     func request<Element: Decodable>(type: Element.Type,
                                      service: Service,
                                      completionHandler: @escaping (Result<Element, Error>) -> Void) {
-        
+    
         guard let url = service.fullURL else {
             completionHandler(.failure(NetworkError.badURL))
             return

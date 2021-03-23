@@ -16,13 +16,12 @@ public protocol MoviesSDK {
 
 public final class MoviesSDKManager: MoviesSDK {
     
-    private let genreRepository: GenreRepository
-    private let movieRepository: MovieRepository
+    var genreRepository: GenreRepository
+    var movieRepository: MovieRepository
     
-    init(genreRepository: GenreRepository = GenreRepository(),
-         movieRepository: MovieRepository = MovieRepository()) {
-        self.genreRepository = genreRepository
-        self.movieRepository = movieRepository
+    public init() {
+        self.genreRepository = GenreRepository()
+        self.movieRepository = MovieRepository()
     }
     
     public func getPopularMovies(completionHandler: @escaping (Result<MovieResponse, Error>) -> Void) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class MovieRepository {
+class MovieRepository {
     
     private let networkManager: NetworkManagerProtocol
     
