@@ -16,7 +16,7 @@ extension Movie: Storageable {
             "id" : identifier,
             "title" : title,
             "posterPath" : posterPath,
-            "releaseDate" : releaseDate,
+            "releaseYear" : releaseYear,
             "overview" : overview
         ]
     }
@@ -27,7 +27,7 @@ extension Movie: Storageable {
         id = managedObject.value(forKey: "id") as? Int ?? 0
         title = managedObject.value(forKey: "title") as? String ?? ""
         posterPath = managedObject.value(forKey: "posterPath") as? String ?? ""
-        releaseDate = managedObject.value(forKey: "releaseDate") as? String ?? ""
+        releaseYear = managedObject.value(forKey: "releaseYear") as? Int ?? 0
         overview = managedObject.value(forKey: "overview") as? String ?? ""
     }
 }

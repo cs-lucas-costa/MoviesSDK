@@ -17,15 +17,15 @@ public struct Movie: Decodable {
     public let id: Int
     public let posterPath: String
     public let title: String
-    public let releaseDate: String
     public let overview: String
-    
+    public let releaseYear: Int
+
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try container.decode(Int.self, forKey: .id)
         posterPath = try container.decode(String.self, forKey: .posterPath)
-        releaseDate = try container.decode(String.self, forKey: .releaseDate)
+        releaseYear = try container.decode(String.self, forKey: .releaseDate).convertToDate(component: .year)
         overview = try container.decode(String.self, forKey: .overview)
         title = try container.decode(String.self, forKey: .title)
     }
@@ -33,12 +33,12 @@ public struct Movie: Decodable {
     public init(id: Int,
                 title: String,
                 posterPath: String,
-                releaseDate: String,
+                releaseYear: Int,
                 overview: String) {
         self.id = id
         self.title = title
         self.posterPath = posterPath
-        self.releaseDate = releaseDate
+        self.releaseYear = releaseYear
         self.overview = overview
     }
     
