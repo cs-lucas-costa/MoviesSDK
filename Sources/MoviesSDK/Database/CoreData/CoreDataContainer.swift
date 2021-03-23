@@ -34,7 +34,6 @@ final class CoreDataContainer: CoreDataProtocol {
     }()
     
     var context: NSManagedObjectContext {
-        container.viewContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
         return container.viewContext
     }
     
