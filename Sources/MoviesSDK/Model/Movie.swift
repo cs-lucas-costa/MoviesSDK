@@ -17,7 +17,6 @@ public struct Movie: Decodable {
     public let id: Int
     public let posterPath: String
     public let title: String
-    public //Falta os gêneros
     public let releaseDate: String
     public let overview: String
     
