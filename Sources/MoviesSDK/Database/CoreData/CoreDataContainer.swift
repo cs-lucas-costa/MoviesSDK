@@ -22,7 +22,6 @@ final class CoreDataContainer: CoreDataProtocol {
         }
         
         let container = NSPersistentContainer(name: containerIdentifier, managedObjectModel: model)
-        container.viewContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
         
         guard container.persistentStoreDescriptions.first != nil else {
             fatalError("Couldn't retrieve persistent store description")
