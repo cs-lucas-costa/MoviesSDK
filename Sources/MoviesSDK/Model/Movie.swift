@@ -14,12 +14,12 @@ public struct MovieResponse: Decodable {
 
 public struct Movie: Decodable {
     
-    let id: Int
-    let posterPath: String
-    let title: String
-    //Falta os gêneros
-    let releaseDate: String
-    let overview: String
+    public let id: Int
+    public let posterPath: String
+    public let title: String
+    public //Falta os gêneros
+    public let releaseDate: String
+    public let overview: String
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
