@@ -51,7 +51,7 @@ final class Database: DatabaseProtocol {
     
     func delete<Element: Storageable>(type: Element.Type, id: Int, completion: ((Error?) -> Void)?) {
         
-        let predicate = NSPredicate(format: "id = %@", id)
+        let predicate = NSPredicate(format: "id = %i", id)
         
         fetchManagedObjects(type: Element.self, with: predicate) { [weak self] (result) in
             switch result {
